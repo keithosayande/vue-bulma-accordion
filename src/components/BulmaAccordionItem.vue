@@ -1,9 +1,6 @@
 <template>
     <div :class="card_classes">
         <div class="card-header" @click="handleClick">
-            <p class="card-header-title">
-                <slot name="title"></slot>
-            </p>
             <p class="card-header-icon">
                 <span v-if="!usingCustomIcon" class="icon">
                     <span v-if="showCaret" :class="dropdownIconClasses" :style="iconStyle">
@@ -26,6 +23,9 @@
                     <slot v-if="isOpen" name="icon-open"></slot>
                     <slot v-else name="icon-closed"></slot>
                 </span>
+            </p>
+            <p class="card-header-title">
+                <slot name="title"></slot>
             </p>
         </div>
         <div class="accordion-body" ref="body" :style="slideStyle">
